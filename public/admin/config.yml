@@ -1,0 +1,98 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: owner/izzie-personal-site
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Life"
+          - "Tech"
+          - "Personal"
+          - "Life & Reflections"
+          - "Technology"
+          - "Consulting"
+          - "Community"
+          - "Travel"
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["order", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Founded", value: "founder" }
+          - { label: "Consulting", value: "consulting" }
+          - { label: "Volunteer", value: "volunteer" }
+      - { label: "Type", name: "type", widget: "string", hint: "e.g. FinTech / Social Impact" }
+      - { label: "Description", name: "desc", widget: "text" }
+      - { label: "Long Description", name: "longDesc", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", default: [] }
+      - { label: "Year", name: "year", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - "Live"
+          - "Active"
+          - "Open Source"
+          - "Draft"
+      - { label: "Display Order", name: "order", widget: "number", default: 99, value_type: "int" }
+
+  - name: "achievements"
+    label: "Achievements"
+    folder: "content/achievements"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["order", "year", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Award"
+          - "Speaking"
+          - "Community"
+          - "Recognition"
+          - "Milestone"
+          - "Product"
+          - "Open Source"
+          - "Impact"
+          - "Founding"
+          - "Volunteer"
+          - "Life"
+          - "Career"
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Impact", name: "impact", widget: "string" }
+      - { label: "Display Order", name: "order", widget: "number", default: 99, value_type: "int" }
