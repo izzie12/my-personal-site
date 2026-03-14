@@ -2,7 +2,7 @@ local_backend: true
 
 backend:
   name: github
-  repo: owner/izzie-personal-site
+  repo: izzie12/my-personal-site
   branch: main
 
 media_folder: "public/images/uploads"

@@ -120,7 +120,7 @@ function HeroSection() {
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 rounded-3xl blur-2xl" />
               <div className="relative rounded-2xl overflow-hidden border border-border aspect-[4/5]">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1719400471588-575b23e27bd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjBjb2RpbmclMjB3b3Jrc3BhY2UlMjBkYXJrfGVufDF8fHx8MTc3MjgxNTI0NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="images/uploads/isaac-hero-image.png"
                   alt="Developer workspace"
                   className="w-full h-full object-cover"
                 />
