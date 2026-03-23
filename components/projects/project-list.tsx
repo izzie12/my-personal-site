@@ -42,6 +42,9 @@ export function ProjectList({ projects }: { projects: Project[] }) {
             <TabsTrigger value="all" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>All</TabsTrigger>
             <TabsTrigger value="founder" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>Founded</TabsTrigger>
             <TabsTrigger value="consulting" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>Consulting</TabsTrigger>
+            <TabsTrigger value="freelance" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>Freelance</TabsTrigger>
+            <TabsTrigger value="internship" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>Internship</TabsTrigger>
+            <TabsTrigger value="fractional-cto" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>Fractional CTO</TabsTrigger>
             <TabsTrigger value="volunteer" className="rounded-full px-5 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" style={{ fontSize: "0.85rem" }}>Volunteer</TabsTrigger>
           </TabsList>
         </Tabs>
@@ -84,9 +87,13 @@ export function ProjectList({ projects }: { projects: Project[] }) {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <Button variant="outline" size="sm" className="rounded-full gap-2 border-border hover:border-primary/50 hover:text-primary" style={{ fontSize: "0.8rem" }}>
-                      <ExternalLink className="w-3.5 h-3.5" /> View Project
-                    </Button>
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="sm" className="rounded-full gap-2 border-border hover:border-primary/50 hover:text-primary" style={{ fontSize: "0.8rem" }}>
+                          <ExternalLink className="w-3.5 h-3.5" /> View Project
+                        </Button>
+                      </a>
+                    )}
                     {project.status === "Open Source" && (
                       <Button variant="ghost" size="sm" className="rounded-full gap-2 hover:text-primary" style={{ fontSize: "0.8rem" }}>
                         <Github className="w-3.5 h-3.5" /> Source Code

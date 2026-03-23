@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { MapPin, Heart, Globe, Coffee, BookOpen, Plane } from "lucide-react";
+import { Heart, Coffee, BookOpen, Code2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
@@ -25,31 +25,10 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 
 export default function AboutPage() {
   const values = [
-    { icon: <Heart className="w-5 h-5" />, title: "Community First", desc: "Technology only matters if it lifts people up. Every line of code should serve a human need." },
-    { icon: <Globe className="w-5 h-5" />, title: "Bridge Builder", desc: "Connecting the brilliant minds in East Africa with global opportunities and resources." },
-    { icon: <Coffee className="w-5 h-5" />, title: "Always Learning", desc: "From Rolex stands in Kampala to coffee shops in Shoreditch, every conversation is a lesson." },
+    { icon: <Heart className="w-5 h-5" />, title: "Ship What Matters", desc: "No office politics, no long discovery phases. I take a brief, ask the right questions, and build." },
+    { icon: <Code2 className="w-5 h-5" />, title: "Founder Thinking", desc: "I bring founder-level thinking to every client project. I care about whether what I build actually works in the real world." },
+    { icon: <Coffee className="w-5 h-5" />, title: "Always Learning", desc: "Every project is a chance to sharpen the craft. I stay close to the tools and the work." },
     { icon: <BookOpen className="w-5 h-5" />, title: "Open Source", desc: "Knowledge shared is knowledge multiplied. I believe in building in the open." },
-  ];
-
-  const places = [
-    {
-      name: "Uganda",
-      role: "Home Country",
-      desc: "Born and raised in Kampala. Uganda is where my heart is and where my tech journey began.",
-      image: "https://images.unsplash.com/photo-1675756261486-09bd1e0f6c8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxLYW1wYWxhJTIwVWdhbmRhJTIwY2l0eXNjYXBlJTIwYWVyaWFsfGVufDF8fHx8MTc3MjkyMjcwNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      name: "Kenya",
-      role: "Innovation Hub",
-      desc: "Nairobi's tech ecosystem is electric. I work closely with startups and the vibrant developer community there.",
-      image: "https://images.unsplash.com/photo-1768489038219-553695bd4169?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxOYWlyb2JpJTIwS2VueWElMjBtb2Rlcm4lMjBjaXR5fGVufDF8fHx8MTc3MjkyMjcwOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      name: "United Kingdom",
-      role: "Current Base",
-      desc: "London is where I call home now. The diversity and global perspective here fuel everything I do.",
-      image: "https://images.unsplash.com/photo-1624643449508-a424b08861c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxMb25kb24lMjBza3lsaW5lJTIwbW9kZXJufGVufDF8fHx8MTc3MjkyMjcwNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
   ];
 
   return (
@@ -63,24 +42,24 @@ export default function AboutPage() {
           >
             <Badge variant="outline" className="mb-6 border-primary/30 text-primary" style={{ fontSize: "0.75rem" }}>About Me</Badge>
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.15, fontWeight: 500 }} className="mb-6">
-              From Kampala&rsquo;s streets to London&rsquo;s <span className="text-primary italic">tech scene</span>
+              I build things that <span className="text-primary italic">work</span>
             </h1>
             <div className="space-y-4 text-muted-foreground" style={{ fontSize: "1rem", lineHeight: 1.8 }}>
               <p>
-                I&rsquo;m Izzie &mdash; a Ugandan-born, London-based technologist with a deep passion for building things that matter.
-                My journey started writing my first lines of code in a small internet cafe in Kampala, where the connection dropped
-                every ten minutes but the curiosity never did.
+                I&rsquo;m Izzie &mdash; a London-based founder and full-stack developer specialising in Next.js, React, and Tailwind CSS.
+                My portfolio spans SaaS products, fintech platforms, charity systems, investor portals, and consumer apps &mdash;
+                built for clients in the UK and beyond.
               </p>
               <p>
-                Today, I wear many hats: founder, fractional CTO, consultant, and volunteer. But at the core, I&rsquo;m someone who
-                believes technology can transform lives &mdash; especially in the communities that need it most. I&rsquo;ve spent the
-                last 8+ years building products, leading engineering teams, and helping organisations across East Africa and the UK
-                turn ambitious ideas into reality.
+                I don&rsquo;t do office politics, long discovery phases, or six-meeting sprints to align on a button colour.
+                I take a brief, ask the right questions, and build. 8+ years of shipping products, leading engineering teams,
+                and turning ambitious ideas into reality.
               </p>
               <p>
-                When I&rsquo;m not coding or in meetings, you&rsquo;ll find me mentoring young developers in Kampala, speaking at tech events
-                in Nairobi, or exploring the hiking trails around the Lake District. I&rsquo;m a firm believer that the best ideas come
-                from the intersection of different worlds.
+                Freelancing is deliberate for me. I&rsquo;m building my own products on the side, which means I bring
+                founder-level thinking to every client project. I care about whether what I&rsquo;m building actually works
+                in the real world. Available for project-based work &mdash; I&rsquo;ll scope it honestly, deliver on time,
+                and leave you with something you&rsquo;re proud to put your name on.
               </p>
             </div>
           </motion.div>
@@ -133,55 +112,16 @@ export default function AboutPage() {
 
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <AnimatedSection>
-          <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4 border-primary/30 text-primary" style={{ fontSize: "0.75rem" }}>
-              <Plane className="w-3 h-3 mr-1" /> Where I&rsquo;m Active
-            </Badge>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.75rem, 3vw, 2.25rem)", fontWeight: 500 }}>
-              Three countries, <span className="text-primary italic">one mission</span>
-            </h2>
-          </div>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {places.map((place, i) => (
-            <AnimatedSection key={place.name} delay={i * 0.1}>
-              <div className="group rounded-2xl border border-border overflow-hidden bg-card/30 hover:border-primary/20 transition-all duration-500 h-full">
-                <div className="aspect-[4/3] overflow-hidden relative">
-                  <ImageWithFallback
-                    src={place.image}
-                    alt={place.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <Badge className="bg-primary text-primary-foreground" style={{ fontSize: "0.7rem" }}>
-                      <MapPin className="w-3 h-3 mr-1" /> {place.name}
-                    </Badge>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-primary mb-1" style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>{place.role}</p>
-                  <p className="text-muted-foreground" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>{place.desc}</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <AnimatedSection>
           <div className="rounded-2xl border border-border bg-card/50 p-8 md:p-12">
             <h3 className="mb-8 text-center" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem" }}>
               Quick <span className="text-primary italic">facts</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { emoji: "☕", label: "Favourite fuel", value: "Ugandan coffee" },
-                { emoji: "🏔️", label: "Dream hike", value: "Rwenzori Mountains" },
+                { emoji: "☕", label: "Favourite fuel", value: "Strong coffee" },
+                { emoji: "💻", label: "Main stack", value: "Next.js & Tailwind" },
                 { emoji: "📚", label: "Currently reading", value: "Atomic Habits" },
-                { emoji: "🎵", label: "Work playlist", value: "Afrobeats & Lo-fi" },
+                { emoji: "🎵", label: "Work playlist", value: "Lo-fi beats" },
               ].map((fact) => (
                 <div key={fact.label} className="text-center">
                   <div style={{ fontSize: "2rem" }} className="mb-2">{fact.emoji}</div>

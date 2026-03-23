@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -80,17 +80,11 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href="mailto:hello@izzie.dev" className="text-muted-foreground hover:text-primary transition-colors">
-            <Mail className="w-4 h-4" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
             <Github className="w-4 h-4" />
           </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
             <Linkedin className="w-4 h-4" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-            <Twitter className="w-4 h-4" />
           </a>
         </div>
 
@@ -136,9 +130,8 @@ export function Navbar() {
                 </motion.div>
               ))}
               <div className="flex gap-4 pt-4 border-t border-border mt-2">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-4 h-4" /></a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin className="w-4 h-4" /></a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter className="w-4 h-4" /></a>
+                <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Github className="w-4 h-4" /></a>
+                <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin className="w-4 h-4" /></a>
               </div>
             </div>
           </motion.div>

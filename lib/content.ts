@@ -33,6 +33,7 @@ export interface Project {
   year: string;
   status: string;
   order: number;
+  link?: string;
 }
 
 export interface Achievement {
@@ -135,6 +136,7 @@ export function getProjects(): Project[] {
       year: data.year ?? "",
       status: data.status ?? "",
       order: data.order ?? 99,
+      link: data.link ?? undefined,
     };
   });
 

@@ -48,6 +48,9 @@ collections:
         options:
           - { label: "Founded", value: "founder" }
           - { label: "Consulting", value: "consulting" }
+          - { label: "Freelance", value: "freelance" }
+          - { label: "Internship", value: "internship" }
+          - { label: "Fractional CTO", value: "fractional-cto" }
           - { label: "Volunteer", value: "volunteer" }
       - { label: "Type", name: "type", widget: "string", hint: "e.g. FinTech / Social Impact" }
       - { label: "Description", name: "desc", widget: "text" }
@@ -64,6 +67,7 @@ collections:
           - "Open Source"
           - "Draft"
       - { label: "Display Order", name: "order", widget: "number", default: 99, value_type: "int" }
+      - { label: "Website Link", name: "link", widget: "string", required: false, hint: "Optional URL to the project website" }
 
   - name: "achievements"
     label: "Achievements"

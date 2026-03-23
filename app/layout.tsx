@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Izzie Personal Site",
   description:
-    "Founder, Fractional CTO & Consultant — building bridges between East African innovation and global technology.",
+    "London-based founder and full-stack developer. I take a brief, ask the right questions, and build.",
 };
 
 export default function RootLayout({

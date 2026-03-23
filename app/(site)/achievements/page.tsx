@@ -1,7 +1,6 @@
 import { getAchievements, getAchievementsByYear } from "@/lib/content";
 import { AchievementTimeline } from "@/components/achievements/achievement-timeline";
 import { Badge } from "@/components/ui/badge";
-import { StatsGrid } from "@/components/achievements/stats-grid";
 
 export default function AchievementsPage() {
   const milestones = getAchievementsByYear();
@@ -19,8 +18,6 @@ export default function AchievementsPage() {
             Every metric here represents real people impacted.
           </p>
         </div>
-
-        <StatsGrid />
 
         <AchievementTimeline milestones={milestones} />
 

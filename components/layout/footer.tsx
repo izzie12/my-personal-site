@@ -24,8 +24,8 @@ export function Footer() {
               <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontWeight: 600 }}>Izzie</span>
             </div>
             <p className="text-muted-foreground" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
-              Founder, Fractional CTO & Consultant based in the UK.
-              Building bridges between East African innovation and global technology.
+              London-based founder and full-stack developer.
+              I take a brief, ask the right questions, and build.
             </p>
           </div>
           <div>
@@ -41,16 +41,14 @@ export function Footer() {
           <div>
             <h4 className="text-foreground mb-4" style={{ fontSize: "0.875rem", letterSpacing: "0.05em", textTransform: "uppercase" }}>Connect</h4>
             <div className="flex flex-col gap-2">
-              <a href="mailto:hello@izzie.dev" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>hello@izzie.dev</a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>GitHub</a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>LinkedIn</a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>Twitter / X</a>
+              <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>GitHub</a>
+              <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>LinkedIn</a>
             </div>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground" style={{ fontSize: "0.8rem" }}>
-            &copy; 2026 Izzie. Built with love from Kampala to London.
+            &copy; 2026 Izzie. Built in London.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

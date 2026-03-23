@@ -3,7 +3,7 @@
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, MapPin, Code2, Users, Rocket, Heart, Globe, ExternalLink } from "lucide-react";
+import { ArrowRight, MapPin, Code2, Users, Rocket, Heart, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
@@ -68,9 +68,8 @@ function HeroSection() {
               className="text-muted-foreground mb-8 max-w-lg"
               style={{ fontSize: "1.1rem", lineHeight: 1.8 }}
             >
-              I&rsquo;m <span className="text-foreground">Izzie</span> &mdash; a founder, fractional CTO, and consultant
-              who bridges the gap between East African innovation and the global tech ecosystem.
-              Originally from Uganda, now based in London.
+              I&rsquo;m <span className="text-foreground">Izzie</span> &mdash; a London-based founder and full-stack developer
+              specialising in Next.js, React, and Tailwind CSS. I take a brief, ask the right questions, and build.
             </motion.p>
 
             <motion.div
@@ -100,7 +99,7 @@ function HeroSection() {
               {[
                 { num: "15+", label: "Projects Shipped" },
                 { num: "8+", label: "Years Experience" },
-                { num: "3", label: "Countries Active" },
+                { num: "UK", label: "Based in London" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-primary" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 600 }}>{stat.num}</div>
@@ -134,11 +133,11 @@ function HeroSection() {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-primary" />
+                    <Code2 className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <div style={{ fontSize: "0.75rem" }} className="text-muted-foreground">Active in</div>
-                    <div style={{ fontSize: "0.875rem" }}>Uganda, Kenya, Rwanda</div>
+                    <div style={{ fontSize: "0.75rem" }} className="text-muted-foreground">Stack</div>
+                    <div style={{ fontSize: "0.875rem" }}>Next.js, React, Tailwind</div>
                   </div>
                 </div>
               </motion.div>
@@ -150,11 +149,11 @@ function HeroSection() {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-primary" />
+                    <Rocket className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <div style={{ fontSize: "0.75rem" }} className="text-muted-foreground">Volunteer Work</div>
-                    <div style={{ fontSize: "0.875rem" }}>Tech for Good</div>
+                    <div style={{ fontSize: "0.75rem" }} className="text-muted-foreground">Available for</div>
+                    <div style={{ fontSize: "0.875rem" }}>Project-based work</div>
                   </div>
                 </div>
               </motion.div>
@@ -173,8 +172,8 @@ function WhatIDoSection() {
       icon: <Rocket className="w-5 h-5" />,
       title: "Founder",
       subtitle: "Building from zero to one",
-      desc: "Building products that solve real problems for communities across East Africa and beyond. From concept to scale, I've founded multiple tech companies that serve thousands.",
-      highlights: ["MamaFund — 12,000+ users", "NilePay SDK — 45+ startups", "AfyaConnect — 5,000+ consultations"],
+      desc: "Building my own products on the side, which means I bring founder-level thinking to every client project. I care about whether what I'm building actually works in the real world.",
+      highlights: ["Fintech & payments", "Health tech platforms", "Community-driven products"],
       color: "#e8c872",
     },
     {
@@ -191,7 +190,7 @@ function WhatIDoSection() {
       icon: <Users className="w-5 h-5" />,
       title: "Consultant",
       subtitle: "Strategy meets execution",
-      desc: "Advising organisations on digital transformation, tech architecture, and engineering culture that ships. From Fortune 500s to early-stage startups.",
+      desc: "I scope it honestly, deliver on time, and leave you with something you're proud to put your name on. No office politics, no six-meeting sprints to align on a button colour.",
       highlights: ["Digital transformation", "Engineering culture design", "Technical due diligence"],
       color: "#a872e8",
     },
@@ -200,8 +199,8 @@ function WhatIDoSection() {
       icon: <Heart className="w-5 h-5" />,
       title: "Volunteer",
       subtitle: "Tech for good, always",
-      desc: "Helping NGOs and community organisations set up tech projects. Because technology should be accessible to everyone, especially those who need it most.",
-      highlights: ["Kampala Dev Hub — 3,000+ devs", "Tugende Agri — 6,000+ farmers", "RwandaTech Pipeline — 800+ placed"],
+      desc: "Helping NGOs and community organisations set up tech projects. Technology should be accessible to everyone, especially those who need it most.",
+      highlights: ["Developer communities", "Agricultural tech", "Talent pipelines"],
       color: "#e872a8",
     },
   ];
@@ -499,8 +498,8 @@ function CTASection() {
             Let&rsquo;s build something <span className="text-primary italic">meaningful</span> together
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
-            Whether you&rsquo;re a startup looking for technical leadership, an organisation that needs help setting up a tech project,
-            or you just want to chat about the East African tech ecosystem &mdash; I&rsquo;d love to hear from you.
+            Available for project-based work. Whether you need a full-stack build, a technical co-founder,
+            or someone to take your idea from brief to production &mdash; I&rsquo;d love to hear from you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="mailto:hello@izzie.dev">
