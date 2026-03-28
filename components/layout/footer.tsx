@@ -43,12 +43,13 @@ export function Footer() {
             <div className="flex flex-col gap-2">
               <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>GitHub</a>
               <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>LinkedIn</a>
+              <a href="https://ntegeka.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>Website</a>
             </div>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground" style={{ fontSize: "0.8rem" }}>
-            &copy; 2026 Izzie. Built in London.
+            &copy; {new Date().getFullYear()} Izzie. Built in London.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
