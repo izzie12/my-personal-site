@@ -2,20 +2,18 @@
 title: Commodity Plus
 category: consulting
 type: Marketplace
-desc: I built Commodity Plus to fix the trust gap that holds back African
-  commodity exports. It connects international buyers with verified agricultural
-  and mineral suppliers on one platform, where contracts reference international
-  grading standards, quality is independently inspected at every stage, and
-  payments release only against confirmed milestones. Supplier track records are
-  earned from real trade data, not self-reported — and the whole thing is
-  audit-ready against EUDR, OECD due diligence, and 30+ other regimes.
-longDesc: I built Commodity Plus to fix the trust gap that holds back African
-  commodity exports. It connects international buyers with verified agricultural
-  and mineral suppliers on one platform, where contracts reference international
-  grading standards, quality is independently inspected at every stage, and
-  payments release only against confirmed milestones. Supplier track records are
-  earned from real trade data, not self-reported — and the whole thing is
-  audit-ready against EUDR, OECD due diligence, and 30+ other regimes.
+desc: I helped the founder architect and build Commodity Plus, the intelligence
+  layer for African commodity trade — verified supply, independent inspection,
+  and escrow-protected settlement across 14 markets. I now advise the team and
+  lead its development.
+longDesc: I partnered with the founder of Commodity Plus to architect and build
+  trade infrastructure for African commodities from the ground up. The platform
+  connects international buyers with verified suppliers, references
+  international grading standards in every contract, runs independent quality
+  inspection at each milestone, and releases payments only against confirmed
+  events — all audit-ready across EUDR, OECD due diligence, and 30+ other
+  regimes. I designed the core architecture and shipped the first builds; today
+  I advise the founder and lead the engineering team driving it forward.
 image: /images/uploads/commodity-plus.png
 tags:
   - Verified supply
