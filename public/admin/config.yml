@@ -22,6 +22,7 @@ collections:
         min: 1
         options:
           - "Book Reviews"
+          - "Poetry"
           - "Spirituality"
           - "Business"
           - "Reflections on Life"

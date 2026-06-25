@@ -2,6 +2,7 @@
 // Keep in sync with the `categories` select options in public/admin/config.yml.
 export const BLOG_CATEGORIES = [
   "Book Reviews",
+  "Poetry",
   "Spirituality",
   "Business",
   "Reflections on Life",
