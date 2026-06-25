@@ -12,7 +12,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  category: string;
+  categories: string[];
   date: string;
   readTime: string;
   image: string;
@@ -59,6 +59,14 @@ function readMarkdownFiles(dir: string) {
   return fs.readdirSync(fullPath).filter((f) => f.endsWith(".md"));
 }
 
+// Accepts the new `categories` array or a legacy single `category` string.
+function normalizeCategories(data: Record<string, unknown>): string[] {
+  const { categories, category } = data;
+  if (Array.isArray(categories)) return categories.filter(Boolean) as string[];
+  if (typeof category === "string" && category) return [category];
+  return [];
+}
+
 // --- Blog ---
 
 export function getBlogPosts(): BlogPost[] {
@@ -74,7 +82,7 @@ export function getBlogPosts(): BlogPost[] {
       slug,
       title: data.title ?? "",
       excerpt: data.excerpt ?? "",
-      category: data.category ?? "",
+      categories: normalizeCategories(data),
       date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
       readTime: data.readTime ?? "",
       image: data.image ?? "",
@@ -103,7 +111,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
     slug,
     title: data.title ?? "",
     excerpt: data.excerpt ?? "",
-    category: data.category ?? "",
+    categories: normalizeCategories(data),
     date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
     readTime: data.readTime ?? "",
     image: data.image ?? "",

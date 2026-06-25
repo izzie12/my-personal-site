@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import type { BlogPost } from "@/lib/content";
+import { BLOG_CATEGORIES } from "@/lib/categories";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -30,14 +31,26 @@ function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
-const categories = ["All", "Life", "Tech", "Personal"];
-
 export function BlogList({ posts }: { posts: BlogPost[] }) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  // Empty set = "All". Multiple selections filter with OR (match any).
+  const [activeCategories, setActiveCategories] = useState<Set<string>>(new Set());
+
+  const toggleCategory = (cat: string) => {
+    setActiveCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(cat)) next.delete(cat);
+      else next.add(cat);
+      return next;
+    });
+  };
+
   const featuredPost = posts.find((p) => p.featured);
-  const otherPosts = activeCategory === "All"
-    ? posts.filter((p) => !p.featured)
-    : posts.filter((p) => !p.featured && p.category === activeCategory);
+  const otherPosts = posts.filter(
+    (p) =>
+      !p.featured &&
+      (activeCategories.size === 0 ||
+        p.categories.some((c) => activeCategories.has(c)))
+  );
 
   return (
     <>
@@ -57,10 +70,12 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                   </div>
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Badge variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.7rem" }}>
-                      <Tag className="w-3 h-3 mr-1" /> {featuredPost.category}
-                    </Badge>
+                  <div className="flex items-center gap-3 mb-4 flex-wrap">
+                    {featuredPost.categories.map((cat, idx) => (
+                      <Badge key={cat} variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.7rem" }}>
+                        {idx === 0 && <Tag className="w-3 h-3 mr-1" />} {cat}
+                      </Badge>
+                    ))}
                     <span className="text-muted-foreground flex items-center gap-1" style={{ fontSize: "0.75rem" }}>
                       <Calendar className="w-3 h-3" /> {formatDate(featuredPost.date)}
                     </span>
@@ -94,12 +109,23 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="flex gap-2 mb-12 flex-wrap"
       >
-        {categories.map((cat) => (
+        <button
+          onClick={() => setActiveCategories(new Set())}
+          className={`px-5 py-2 rounded-full border transition-all duration-300 ${
+            activeCategories.size === 0
+              ? "bg-primary text-primary-foreground border-primary"
+              : "bg-transparent text-muted-foreground border-border hover:border-primary/30 hover:text-foreground"
+          }`}
+          style={{ fontSize: "0.85rem" }}
+        >
+          All
+        </button>
+        {BLOG_CATEGORIES.map((cat) => (
           <button
             key={cat}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => toggleCategory(cat)}
             className={`px-5 py-2 rounded-full border transition-all duration-300 ${
-              activeCategory === cat
+              activeCategories.has(cat)
                 ? "bg-primary text-primary-foreground border-primary"
                 : "bg-transparent text-muted-foreground border-border hover:border-primary/30 hover:text-foreground"
             }`}
@@ -124,10 +150,12 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Badge variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.65rem" }}>
-                      {post.category}
-                    </Badge>
+                  <div className="flex items-center gap-3 mb-3 flex-wrap">
+                    {post.categories.map((cat) => (
+                      <Badge key={cat} variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.65rem" }}>
+                        {cat}
+                      </Badge>
+                    ))}
                     <span className="text-muted-foreground" style={{ fontSize: "0.7rem" }}>{formatDate(post.date)}</span>
                   </div>
                   <h3 className="mb-3 group-hover:text-primary transition-colors" style={{ fontSize: "1.1rem", lineHeight: 1.4 }}>

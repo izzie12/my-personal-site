@@ -33,10 +33,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             &larr; Back to Blog
           </Link>
 
-          <div className="flex items-center gap-3 mb-4">
-            <Badge variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.7rem" }}>
-              {post.category}
-            </Badge>
+          <div className="flex items-center gap-3 mb-4 flex-wrap">
+            {post.categories.map((cat) => (
+              <Badge key={cat} variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.7rem" }}>
+                {cat}
+              </Badge>
+            ))}
             <span className="text-muted-foreground" style={{ fontSize: "0.8rem" }}>
               {formattedDate}
             </span>
