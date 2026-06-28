@@ -43,6 +43,7 @@ export function Footer() {
             <div className="flex flex-col gap-2">
               <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>GitHub</a>
               <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>LinkedIn</a>
+              <a href="/feed.xml" className="text-muted-foreground hover:text-primary transition-colors" style={{ fontSize: "0.875rem" }}>RSS Feed</a>
             </div>
           </div>
         </div>

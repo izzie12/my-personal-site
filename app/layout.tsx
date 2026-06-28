@@ -1,10 +1,34 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Izzie Personal Site",
-  description:
-    "London-based founder and full-stack developer. I take a brief, ask the right questions, and build.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Founder & Full-Stack Developer`,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: `${SITE_NAME} — Founder & Full-Stack Developer`,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — Founder & Full-Stack Developer`,
+    description: SITE_DESCRIPTION,
+  },
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: `${SITE_NAME} — Blog (RSS)` }],
+      "application/atom+xml": [{ url: "/atom.xml", title: `${SITE_NAME} — Blog (Atom)` }],
+      "application/feed+json": [{ url: "/feed.json", title: `${SITE_NAME} — Blog (JSON Feed)` }],
+    },
+  },
 };
 
 export default function RootLayout({

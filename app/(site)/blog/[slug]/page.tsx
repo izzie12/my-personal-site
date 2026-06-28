@@ -1,6 +1,11 @@
-import { getBlogPosts, getBlogPost } from "@/lib/content";
+import type { Metadata } from "next";
+import { getBlogPosts, getBlogPost, getRelatedPosts } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import { RelatedPosts } from "@/components/blog/related-posts";
+import { ShareButtons } from "@/components/blog/share-buttons";
+import { slugifyCategory } from "@/lib/categories";
+import { absoluteUrl } from "@/lib/site";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -9,11 +14,43 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+  if (!post) return {};
+
+  const url = `/blog/${post.slug}`;
+  const images = post.image ? [{ url: post.image, alt: post.title }] : undefined;
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: absoluteUrl(url),
+      publishedTime: post.date || undefined,
+      tags: post.categories,
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : undefined,
+    },
+  };
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getBlogPost(slug);
 
   if (!post) notFound();
+
+  const related = getRelatedPosts(slug);
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     month: "long",
@@ -35,9 +72,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <div className="flex items-center gap-3 mb-4 flex-wrap">
             {post.categories.map((cat) => (
-              <Badge key={cat} variant="outline" className="rounded-full border-primary/30 text-primary" style={{ fontSize: "0.7rem" }}>
-                {cat}
-              </Badge>
+              <Link key={cat} href={`/blog/category/${slugifyCategory(cat)}`}>
+                <Badge variant="outline" className="rounded-full border-primary/30 text-primary hover:bg-primary/10 transition-colors" style={{ fontSize: "0.7rem" }}>
+                  {cat}
+                </Badge>
+              </Link>
             ))}
             <span className="text-muted-foreground" style={{ fontSize: "0.8rem" }}>
               {formattedDate}
@@ -88,6 +127,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             [&_pre]:bg-card [&_pre]:p-6 [&_pre]:rounded-xl [&_pre]:border [&_pre]:border-border [&_pre]:mb-6 [&_pre]:overflow-x-auto"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        <div className="mt-12 pt-8 border-t border-border">
+          <ShareButtons url={absoluteUrl(`/blog/${post.slug}`)} title={post.title} />
+        </div>
+
+        <RelatedPosts posts={related} />
 
         <div className="mt-16 pt-8 border-t border-border text-center">
           <Link

@@ -121,6 +121,33 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   };
 }
 
+// Posts sharing at least one category with the given post, ranked by number of
+// shared categories then recency. Excludes the post itself and drafts.
+export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
+  const posts = getBlogPosts();
+  const current = posts.find((p) => p.slug === slug);
+  if (!current) return [];
+
+  const currentCats = new Set(current.categories);
+
+  return posts
+    .filter((p) => p.slug !== slug)
+    .map((p) => ({
+      post: p,
+      overlap: p.categories.filter((c) => currentCats.has(c)).length,
+    }))
+    .filter((x) => x.overlap > 0)
+    .sort((a, b) =>
+      b.overlap !== a.overlap
+        ? b.overlap - a.overlap
+        : a.post.date > b.post.date
+          ? -1
+          : 1
+    )
+    .slice(0, limit)
+    .map((x) => x.post);
+}
+
 // --- Projects ---
 
 export function getProjects(): Project[] {
