@@ -25,8 +25,8 @@ function AnimatedSection({ children, className = "", delay = 0 }: { children: Re
 
 export default function AboutPage() {
   const values = [
-    { icon: <Heart className="w-5 h-5" />, title: "Ship What Matters", desc: "No office politics, no long discovery phases. I take a brief, ask the right questions, and build." },
-    { icon: <Code2 className="w-5 h-5" />, title: "Founder Thinking", desc: "I bring founder-level thinking to every client project. I care about whether what I build actually works in the real world." },
+    { icon: <Heart className="w-5 h-5" />, title: "Ship What Matters", desc: "I care about building things that actually work — and shipping them, not just talking about them." },
+    { icon: <Code2 className="w-5 h-5" />, title: "Founder Thinking", desc: "I bring founder-level thinking to everything I build. I care about whether what I make holds up in the real world." },
     { icon: <Coffee className="w-5 h-5" />, title: "Always Learning", desc: "Every project is a chance to sharpen the craft. I stay close to the tools and the work." },
     { icon: <BookOpen className="w-5 h-5" />, title: "Open Source", desc: "Knowledge shared is knowledge multiplied. I believe in building in the open." },
   ];
@@ -47,19 +47,18 @@ export default function AboutPage() {
             <div className="space-y-4 text-muted-foreground" style={{ fontSize: "1rem", lineHeight: 1.8 }}>
               <p>
                 I&rsquo;m Izzie &mdash; a London-based founder and full-stack developer specialising in Next.js, React, and Tailwind CSS.
-                My portfolio spans SaaS products, fintech platforms, charity systems, investor portals, and consumer apps &mdash;
-                built for clients in the UK and beyond.
+                My work spans SaaS products, fintech platforms, charity systems, investor portals, and consumer apps,
+                built in the UK and beyond.
               </p>
               <p>
-                I don&rsquo;t do office politics, long discovery phases, or six-meeting sprints to align on a button colour.
-                I take a brief, ask the right questions, and build. 8+ years of shipping products, leading engineering teams,
-                and turning ambitious ideas into reality.
+                Over 8+ years I&rsquo;ve shipped products, led engineering teams, and turned ambitious ideas into reality.
+                I care about the craft &mdash; building things that work and shipping them, not endless discovery phases or
+                six-meeting sprints to align on a button colour.
               </p>
               <p>
-                Freelancing is deliberate for me. I&rsquo;m building my own products on the side, which means I bring
-                founder-level thinking to every client project. I care about whether what I&rsquo;m building actually works
-                in the real world. Available for project-based work &mdash; I&rsquo;ll scope it honestly, deliver on time,
-                and leave you with something you&rsquo;re proud to put your name on.
+                I&rsquo;m building my own products, which means I bring founder-level thinking to everything I build.
+                What I care about most is whether what I make actually holds up in the real world. This site is where I
+                share that work and the things I&rsquo;m thinking about.
               </p>
             </div>
           </motion.div>

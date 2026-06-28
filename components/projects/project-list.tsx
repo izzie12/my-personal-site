@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, Linkedin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -110,17 +110,23 @@ export function ProjectList({ projects }: { projects: Project[] }) {
       <AnimatedSection className="mt-20">
         <div className="rounded-2xl border border-border bg-card/50 p-8 md:p-12 text-center">
           <h3 className="mb-3" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.5rem" }}>
-            Have a project in mind?
+            Let&rsquo;s connect
           </h3>
           <p className="text-muted-foreground mb-6 max-w-lg mx-auto" style={{ fontSize: "0.9rem", lineHeight: 1.7 }}>
-            Whether it&rsquo;s a startup that needs a CTO, an NGO that needs technical guidance, or an open-source idea
-            worth building &mdash; let&rsquo;s talk.
+            More of my work lives on GitHub, and I&rsquo;m always happy to connect on LinkedIn.
           </p>
-          <a href="mailto:hello@izzie.dev">
-            <Button className="rounded-full px-8 gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
-              Let&rsquo;s Collaborate <ArrowUpRight className="w-4 h-4" />
-            </Button>
-          </a>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer">
+              <Button className="rounded-full px-8 gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
+                <Linkedin className="w-4 h-4" /> Connect on LinkedIn
+              </Button>
+            </a>
+            <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="rounded-full px-8 gap-2 border-border hover:border-primary/50 hover:text-primary">
+                <Github className="w-4 h-4" /> GitHub
+              </Button>
+            </a>
+          </div>
         </div>
       </AnimatedSection>
     </>

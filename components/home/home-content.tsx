@@ -3,7 +3,7 @@
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, MapPin, Code2, Users, Rocket, Heart, ExternalLink } from "lucide-react";
+import { ArrowRight, MapPin, Code2, Rocket, ExternalLink, Github, Linkedin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
@@ -69,7 +69,7 @@ function HeroSection() {
               style={{ fontSize: "1.1rem", lineHeight: 1.8 }}
             >
               I&rsquo;m <span className="text-foreground">Izzie</span> &mdash; a London-based founder and full-stack developer
-              specialising in Next.js, React, and Tailwind CSS. I take a brief, ask the right questions, and build.
+              specialising in Next.js, React, and Tailwind CSS. This is where I share my work and writing.
             </motion.p>
 
             <motion.div
@@ -152,185 +152,14 @@ function HeroSection() {
                     <Rocket className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <div style={{ fontSize: "0.75rem" }} className="text-muted-foreground">Available for</div>
-                    <div style={{ fontSize: "0.875rem" }}>Project-based work</div>
+                    <div style={{ fontSize: "0.75rem" }} className="text-muted-foreground">Currently</div>
+                    <div style={{ fontSize: "0.875rem" }}>Building products</div>
                   </div>
                 </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function WhatIDoSection() {
-  const roles = [
-    {
-      id: 1,
-      icon: <Rocket className="w-5 h-5" />,
-      title: "Founder",
-      subtitle: "Building from zero to one",
-      desc: "Building my own products on the side, which means I bring founder-level thinking to every client project. I care about whether what I'm building actually works in the real world.",
-      highlights: ["Fintech & payments", "Health tech platforms", "Community-driven products"],
-      color: "#e8c872",
-    },
-    {
-      id: 2,
-      icon: <Code2 className="w-5 h-5" />,
-      title: "Fractional CTO",
-      subtitle: "Technical leadership, on demand",
-      desc: "Helping startups and scaleups build world-class engineering teams and technical strategies without the full-time commitment. I embed with your team and ship.",
-      highlights: ["Architecture & tech strategy", "Team building & hiring", "Scaling from MVP to production"],
-      color: "#72c8e8",
-    },
-    {
-      id: 3,
-      icon: <Users className="w-5 h-5" />,
-      title: "Consultant",
-      subtitle: "Strategy meets execution",
-      desc: "I scope it honestly, deliver on time, and leave you with something you're proud to put your name on. No office politics, no six-meeting sprints to align on a button colour.",
-      highlights: ["Digital transformation", "Engineering culture design", "Technical due diligence"],
-      color: "#a872e8",
-    },
-    {
-      id: 4,
-      icon: <Heart className="w-5 h-5" />,
-      title: "Volunteer",
-      subtitle: "Tech for good, always",
-      desc: "Helping NGOs and community organisations set up tech projects. Technology should be accessible to everyone, especially those who need it most.",
-      highlights: ["Developer communities", "Agricultural tech", "Talent pipelines"],
-      color: "#e872a8",
-    },
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const TAB_HEIGHT = 52;
-  const CARD_BODY_HEIGHT = 260;
-
-  return (
-    <section className="py-24 lg:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/50 to-transparent" />
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <AnimatedSection>
-          <div className="text-center mb-12 lg:mb-16">
-            <Badge variant="outline" className="mb-4 border-primary/30 text-primary" style={{ fontSize: "0.75rem" }}>What I Do</Badge>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 500, lineHeight: 1.2 }}>
-              Wearing many hats, <span className="text-primary italic">one mission</span>
-            </h2>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.15}>
-          <div
-            className="relative mx-auto"
-            style={{ height: `${roles.length * TAB_HEIGHT + CARD_BODY_HEIGHT}px`, maxWidth: 640 }}
-          >
-            {roles.map((role, i) => {
-              const isActive = i === activeIndex;
-              const isBehind = i < activeIndex;
-              const topPos = isBehind
-                ? i * TAB_HEIGHT
-                : isActive
-                ? i * TAB_HEIGHT
-                : activeIndex * TAB_HEIGHT + CARD_BODY_HEIGHT + (i - activeIndex) * TAB_HEIGHT;
-
-              return (
-                <motion.div
-                  key={role.id}
-                  className="absolute left-0 right-0 rounded-2xl border bg-card overflow-hidden"
-                  style={{
-                    zIndex: isActive ? 10 : isBehind ? i : 5 + i,
-                    borderColor: isActive ? `${role.color}40` : "var(--border)",
-                  }}
-                  animate={{
-                    top: topPos,
-                    boxShadow: isActive
-                      ? `0 8px 40px -12px ${role.color}25`
-                      : "0 1px 3px rgba(0,0,0,0.1)",
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                >
-                  <button
-                    onClick={() => setActiveIndex(i)}
-                    className="w-full flex items-center gap-4 px-6 cursor-pointer transition-colors"
-                    style={{ height: TAB_HEIGHT }}
-                  >
-                    <div
-                      className="w-2 h-2 rounded-full shrink-0 transition-transform duration-300"
-                      style={{
-                        backgroundColor: role.color,
-                        transform: isActive ? "scale(1.8)" : "scale(1)",
-                      }}
-                    />
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
-                      style={{
-                        backgroundColor: isActive ? `${role.color}20` : `${role.color}0a`,
-                        color: role.color,
-                      }}
-                    >
-                      {role.icon}
-                    </div>
-                    <span
-                      className="transition-colors duration-300"
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: isActive ? "1.1rem" : "0.92rem",
-                        color: isActive ? "var(--foreground)" : "var(--muted-foreground)",
-                      }}
-                    >
-                      {role.title}
-                    </span>
-                    <span
-                      className="ml-auto text-muted-foreground hidden sm:block transition-opacity duration-300"
-                      style={{ fontSize: "0.75rem", opacity: isActive ? 1 : 0.4 }}
-                    >
-                      {role.subtitle}
-                    </span>
-                  </button>
-
-                  <motion.div
-                    animate={{
-                      height: isActive ? CARD_BODY_HEIGHT : 0,
-                      opacity: isActive ? 1 : 0,
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 pb-8 pt-2">
-                      <div
-                        className="h-px w-full mb-6"
-                        style={{ background: `linear-gradient(90deg, ${role.color}40, transparent)` }}
-                      />
-                      <p className="text-muted-foreground mb-6" style={{ fontSize: "0.92rem", lineHeight: 1.75 }}>
-                        {role.desc}
-                      </p>
-                      <div>
-                        <p className="text-muted-foreground mb-3" style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                          Key highlights
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {role.highlights.map((h) => (
-                            <span
-                              key={h}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-card/80"
-                              style={{ fontSize: "0.78rem" }}
-                            >
-                              <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: role.color }} />
-                              {h}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
@@ -495,16 +324,21 @@ function CTASection() {
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <AnimatedSection>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 500, lineHeight: 1.3 }} className="mb-6">
-            Let&rsquo;s build something <span className="text-primary italic">meaningful</span> together
+            Let&rsquo;s <span className="text-primary italic">connect</span>
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto" style={{ fontSize: "1.05rem", lineHeight: 1.8 }}>
-            Available for project-based work. Whether you need a full-stack build, a technical co-founder,
-            or someone to take your idea from brief to production &mdash; I&rsquo;d love to hear from you.
+            This is where I share my work and writing. The best way to reach me is on LinkedIn or GitHub
+            &mdash; I&rsquo;m always happy to talk shop.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:hello@izzie.dev">
+            <a href="https://www.linkedin.com/in/isaacntegeka/" target="_blank" rel="noopener noreferrer">
               <Button className="rounded-full px-8 gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
-                Get in Touch <ArrowRight className="w-4 h-4" />
+                <Linkedin className="w-4 h-4" /> Connect on LinkedIn
+              </Button>
+            </a>
+            <a href="https://github.com/izzie12" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="rounded-full px-8 gap-2 border-border hover:border-primary/50 hover:text-primary">
+                <Github className="w-4 h-4" /> GitHub
               </Button>
             </a>
             <Link href="/blog">
@@ -523,7 +357,6 @@ export function HomeContent({ projects }: { projects: Project[] }) {
   return (
     <>
       <HeroSection />
-      <WhatIDoSection />
       <FeaturedProjectsSection projects={projects} />
       <CTASection />
     </>

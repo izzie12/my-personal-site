@@ -25,7 +25,7 @@ export function Footer() {
             </div>
             <p className="text-muted-foreground" style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
               London-based founder and full-stack developer.
-              I take a brief, ask the right questions, and build.
+              Building products and writing about technology, life, and everything in between.
             </p>
           </div>
           <div>
