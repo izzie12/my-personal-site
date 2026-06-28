@@ -9,7 +9,7 @@ date: 2026-03-28
 readTime: 5 min read
 image: https://unsplash.com/photos/black-and-silver-fountain-pen-hjwKMkehBco
 featured: false
-draft: true
+draft: false
 ---
 I've started a couple of blogs. This is the third. The first two are dead, and it's worth talking about why they died, because the reason is actually the whole point of this post.
 
