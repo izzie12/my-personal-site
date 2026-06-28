@@ -97,8 +97,7 @@ function HeroSection() {
               className="flex gap-8 mt-12"
             >
               {[
-                { num: "15+", label: "Projects Shipped" },
-                { num: "8+", label: "Years Experience" },
+                { num: `${new Date().getFullYear() - 2022}+`, label: "Years Experience" },
                 { num: "UK", label: "Based in London" },
               ].map((stat) => (
                 <div key={stat.label}>
