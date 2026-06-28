@@ -98,7 +98,7 @@ function HeroSection() {
             >
               {[
                 { num: `${new Date().getFullYear() - 2022}+`, label: "Years Experience" },
-                { num: "UK", label: "Based in London" },
+                { num: "London, UK", label: "Location" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-primary" style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.75rem", fontWeight: 600 }}>{stat.num}</div>
