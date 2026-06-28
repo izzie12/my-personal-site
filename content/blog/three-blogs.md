@@ -7,7 +7,7 @@ categories:
   - Miscellaneous
 date: 2026-03-28
 readTime: 5 min read
-image: https://unsplash.com/photos/black-and-silver-fountain-pen-hjwKMkehBco
+image: /images/uploads/picture-of-a-book-laptop-and-pen.jpg
 featured: false
 draft: false
 ---
